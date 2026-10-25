@@ -1,3 +1,5 @@
+IMF Exchange Rate Explorer
+
 A Streamlit app that compares nominal and real bilateral exchange rates for any two IMF countries (or the Euro area, G163) using monthly IMF CPI and exchange-rate data from January 1976, where available.
 
 Quick start (Python 3.12)
@@ -36,7 +38,7 @@ Real Index: 100 × RER(t) / RER*.
 A month is valid for RER when E1, E2, P1, and P2 are all present and positive. Months missing any input appear as gaps in the real series (they are not interpolated). The nominal series is plotted wherever E1 and E2 both exist, even if CPI is missing. The CSV includes every month in the sample, with blanks where data is missing and a valid_rer_month flag.
 
 Notes and limitations
-Euro area (G163): the app tries G163, then U2 for CPI and the exchange rate. If the IMF has no euro-area exchange-rate series, it falls back to Germany's EUR-per-USD rate from January 1999 (identical for all euro members) and tells you so. Pre-1999 euro-area real rates are then unavailable. The "Data sources used" panel shows exactly which keys returned data.
+Euro area (G163): whichever euro-area code you pick, the app tries G163, EA, U2, then EMU for CPI and for the exchange rate. If the IMF has no euro-area exchange-rate series, it falls back to Germany's EUR-per-USD rate from January 1999 (identical for all euro members) and tells you so. Pre-1999 euro-area real rates are then unavailable. The "Data sources used" panel shows exactly which keys returned data.
 IMF coverage varies by country and series; the app warns when a series is missing. Some countries start well after 1976, and some series (e.g. Euro area) begin later.
 The United States has no USD/USD series in some releases; the app treats it as 1.0 when absent.
 Results are cached for 6 hours per series. Restart the app or clear the Streamlit cache to force a refresh.
